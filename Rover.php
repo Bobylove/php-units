@@ -6,54 +6,60 @@ class Rover {
 	public $y=0;
 	public $direction = "nord";
 	
-	public function __construct(){
-
+	public function __construct($x,$y,$dir){
+		// $this->getPosition($x,$y);
+		$this->x = $x;
+		$this->y = $y;
+		$this->direction = $dir;
 	}
+	// public function getPosition(){
+	// 	return  [$this->x,$this->y];
+	// }
 
-	public function forward(){
+	public function forward($moveUp){
 		if ($this->direction === "nord" ) {
-			return $this->y +=1;
+			return $this->y -=$moveUp;
 		}
 		if ($this->direction === "sud") {
-			return $this->y +=1;
+			return $this->y +=$moveUp;
 		}
 		if ($this->direction === "est") {
-			return $this->x +=1;
+			return $this->x +=$moveUp;
 		}
 		if ($this->direction === "ouest") {
-			return $this->x +=1;
+			return $this->x -=$moveUp;
 		}
 
 	}
 	
-	public function backward(){
+	public function backward($moveBack){
 		if ($this->direction === "nord" ) {
-			return $this->y  -=1;
+			return $this->y  -=$moveBack;
 		}
 		if ($this->direction ===  "sud") {
-			return $this->y -=1;
+			return $this->y +=$moveBack;
 		}
 		if ($this->direction === "est") {
-			return $this->x -=1;
+			return $this->x +=$moveBack;
 		}
 		if ($this->direction === "ouest") {
-			return $this->x -=1;
+			return $this->x -=$moveBack;
 		}
 	}
 
 
 	public function left(){
 		if ($this->direction == "nord") {
-			return $this->direction = "ouest";
-		}
-		if ($this->direction == "ouest") {
-			return $this->direction = "sud";
-		}
-		if ($this->direction == "sud") {
 			return $this->direction = "est";
 		}
-		if ($this->direction == "est") {
+		if ($this->direction == "ouest") {
 			return $this->direction = "nord";
+		}
+		if ($this->direction == "sud") {
+			return $this->direction = "ouest";
+		}
+		if ($this->direction == "est") {
+			return $this->direction = "sud";
 		}
 	}
 
