@@ -2,78 +2,81 @@
 
 
 class Rover {
+
 	public $x=0;
 	public $y=0;
-	public $direction = "nord";
+	public $direction;
 	
 	public function __construct($x,$y,$dir){
-		// $this->getPosition($x,$y);
+		
 		$this->x = $x;
 		$this->y = $y;
 		$this->direction = $dir;
 	}
-	// public function getPosition(){
-	// 	return  [$this->x,$this->y];
-	// }
+	
 
-	public function forward($moveUp){
+	public function forward(){
+
 		if ($this->direction === "nord" ) {
-			return $this->y -=$moveUp;
+			return $this->y -= 1;
 		}
 		if ($this->direction === "sud") {
-			return $this->y +=$moveUp;
+			return $this->y += 1;
 		}
 		if ($this->direction === "est") {
-			return $this->x +=$moveUp;
+			return $this->x += 1;
 		}
 		if ($this->direction === "ouest") {
-			return $this->x -=$moveUp;
+			return $this->x -= 1;
 		}
 
 	}
 	
-	public function backward($moveBack){
+	public function backward(){
+
 		if ($this->direction === "nord" ) {
-			return $this->y  -=$moveBack;
+			return $this->y  +=1;
 		}
 		if ($this->direction ===  "sud") {
-			return $this->y +=$moveBack;
+			return $this->y -=1;
 		}
 		if ($this->direction === "est") {
-			return $this->x +=$moveBack;
+			return $this->x -=1;
 		}
 		if ($this->direction === "ouest") {
-			return $this->x -=$moveBack;
+			return $this->x +=1;
 		}
 	}
 
 
 	public function left(){
-		if ($this->direction == "nord") {
-			return $this->direction = "est";
-		}
-		if ($this->direction == "ouest") {
-			return $this->direction = "nord";
-		}
-		if ($this->direction == "sud") {
+
+		if ($this->direction === "nord") {
 			return $this->direction = "ouest";
 		}
-		if ($this->direction == "est") {
+		if ($this->direction === "ouest") {
 			return $this->direction = "sud";
+		}
+		if ($this->direction === "sud") {
+			return $this->direction = "est";
+		}
+		if ($this->direction === "est") {
+			return $this->direction = "nord";
 		}
 	}
 
 	public function right(){
-		if ($this->direction == "ouest") {
+
+		if ($this->direction === "ouest") {
 			return $this->direction = "nord";
 		}
-		if ($this->direction == 'nord') {
+		if ($this->direction === 'nord') {
 			return $this->direction = "est";
 		}
-		if ($this->direction == 'est') {
+		if ($this->direction === 'est') {
 			return $this->direction = "sud";
 		}
-		if ($this->direction == 'sud') {
+		if ($this->direction === 'sud') {
 			return $this->direction = "ouest";
 		}
 	}
