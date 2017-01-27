@@ -9,15 +9,19 @@ class RoverTest extends TestCase {
 	public function testRoverMove(){
 		$rover = new Rover();
 		$rover->forward();
+		$rover->forward();
+		$rover->forward();
 		$this->assertEquals(
-			0, 
-			$rover->x
-			);
-		$this->assertEquals(
-			0,
+			3,
 			$rover->y 
 			);
-		
+		$rover->backward();
+		$rover->backward();
+		$rover->backward();
+		$this->assertEquals(
+			0,
+			$rover->y
+			);
 	}
 
 	
