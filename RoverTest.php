@@ -22,6 +22,12 @@ class RoverTest extends TestCase {
 			0,
 			$rover->y
 			);
+		$rover->left();
+		$rover->left();
+		$this->assertEquals(
+			"sud",
+			$rover->direction
+			);
 	}
 
 	

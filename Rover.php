@@ -6,9 +6,6 @@ class Rover {
 	public $y=0;
 	public $direction = "nord";
 	
-	
-	
-
 	public function __construct(){
 
 	}
